@@ -58,7 +58,7 @@ enum class RootType
 
 
 std::tuple<float , float , RootType > FloatRoots(float a, float b, float c);
-//std::tuple<double, double, RootType > DoubleRoots(double a, double b, double c);
+std::tuple<double, double, RootType > DoubleRoots(double a, double b, double c);
 
 }}} // namespace
 

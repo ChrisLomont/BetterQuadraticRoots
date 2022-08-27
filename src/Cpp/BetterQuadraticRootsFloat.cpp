@@ -105,7 +105,7 @@ namespace Lomont {
                 tuple<int, int, float> Normalize(float value)
                 {
                     assert(IsFinite(value)); // do not call on NaN, Inf
-                    if (value == 0) return { 1, 0, 0 };
+                    if (value == 0) return { 1, 0, 0.0f };
 
                     uint64_t i = ToBits(value);
 
@@ -196,16 +196,16 @@ namespace Lomont {
                         else
                         { // complex answers, purely imaginary
                             auto r2 = DivRoot(c, a);
-                            return { true, 0, r2, RootType::SuccessComplex }; // 0 +/- i*r2
+                            return { true, 0.0f, r2, RootType::SuccessComplex }; // 0 +/- i*r2
                         }
                     }
 
                     if (c == 0)
                     { // a,b != 0, of form ax^2 + bx = 0, so roots are x=0 and x=-b/a
-                        return { true, 0, -b / a, RootType::SuccessReal };
+                        return { true, 0.0f, -b / a, RootType::SuccessReal };
                     }
 
-                    return { false, 0, 0, RootType::SuccessReal }; // not real, but will continue to work
+                    return { false, 0.0f, 0.0f, RootType::SuccessReal }; // not real, but will continue to work
 
                 }
 
